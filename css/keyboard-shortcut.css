@@ -1,0 +1,34 @@
+/* Keyboard Shortcut EM */
+.keyboard-shortcut-em {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 2px;
+    color: black;
+    opacity: 0.7;
+}
+.keyboard-shortcut-em.active {
+    display: block;
+}
+
+.keyboard-shortcut-em .fa-stack {
+    font-size: 0.8rem;
+}
+.keyboard-shortcut-em i.inactive-indicator {
+    display: block;
+    color: red;
+    opacity: 0.5;
+}
+.keyboard-shortcut-em.active i.inactive-indicator {
+    display: none;
+}
+
+
+.keyboard-shortcut-em.blinking {
+    animation: keyboard-shortcut-em-flash 2s infinite;
+}
+@keyframes keyboard-shortcut-em-flash {
+    0%   { color: darkred; opacity: 0;   }
+    50%  { color: darkred; opacity: 0.8; }
+    100% { color: darkred; opacity: 0; }
+}

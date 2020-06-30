@@ -1,0 +1,32 @@
+{
+    "name": "Keyboard Shortcuts",
+    "namespace": "DE\\RUB\\KeyboardShortcutsExternalModule",
+    "description": "Adds several keyboard shortcuts to a number of REDCap pages. <strong><a href=\"https://github.com/grezniczek/redcap-keyboard-shortcuts\">See full documentation here</a></strong>.",
+    "permissions": [
+        "redcap_every_page_top"
+    ],
+    "enable-every-page-hooks-on-system-pages": true,
+    "framework-version": 3,
+    "authors": [
+        {
+            "name": "Günther Rezniczek",
+            "email": "guenther.rezniczek@rub.de",
+            "institution": "Ruhr-Universität Bochum"
+        }
+    ],
+    "system-settings": [
+        {
+            "name": "Debug mode",
+            "key": "debug-mode",
+            "type": "checkbox"
+        }
+    ],
+    "project-settings": [
+    ],
+    "compatibility": {
+        "php-version-min": "5.6.0",
+        "php-version-max": "",
+        "redcap-version-min": "10.0.0",
+        "redcap-version-max": ""
+     }
+}

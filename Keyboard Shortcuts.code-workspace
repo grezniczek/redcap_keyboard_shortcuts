@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "..\\..\\external_modules",
+			"name": "EM Framework"
+		},
+		{
+			"path": "..\\..\\redcap_v9.10.0",
+			"name": "REDCap"
+		}
+	],
+	"settings": {
+		"breadcrumbs.icons": true,
+		"git.ignoreLimitWarning": true
+	}
+}
