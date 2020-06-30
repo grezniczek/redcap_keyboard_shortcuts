@@ -4,7 +4,7 @@ A REDCap External Module providing a few keyboard shortcuts.
 
 ## Requirements
 
-- REDCap 10.0.0 or newer.
+- REDCap 9.5.0 or newer.
 
 ## Installation
 
