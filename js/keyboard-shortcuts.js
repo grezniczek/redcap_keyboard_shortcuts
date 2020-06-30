@@ -55,9 +55,18 @@ function keyListener(e) {
     if (e.altKey && !e.ctrlKey && !e.shiftKey && e.key == '0') {
         location.href = webroot + 'ControlCenter/index.php'
     }
+    // Alt-Shift-E -> External Modules
+    if (e.code == 'KeyE' && e.altKey && !e.ctrlKey && e.shiftKey ) {
+        location.href = DTO.emBase + 'manager/control_center.php'
+    }
     
     // In-project shortcuts
     if (DTO.pid > 0) {
+        // A -> Add/Edit Records
+        if (e.code == 'KeyA' && !e.altKey && !e.ctrlKey && !e.shiftKey) {
+            location.href = webroot + 'DataEntry/record_home.php?pid=' + DTO.pid
+        }
+
         // C -> Codebook
         if (e.code == 'KeyC' && !e.altKey && !e.ctrlKey && !e.shiftKey) {
             location.href = webroot + 'Design/data_dictionary_codebook.php?pid=' + DTO.pid
@@ -66,6 +75,11 @@ function keyListener(e) {
         // D -> Record Status Dashboard
         if (e.code == 'KeyD' && !e.altKey && !e.ctrlKey && !e.shiftKey) {
             location.href = webroot + 'DataEntry/record_status_dashboard.php?pid=' + DTO.pid
+        }
+
+        // H -> Project Home Page
+        if (e.code == 'KeyH' && !e.altKey && !e.ctrlKey && !e.shiftKey) {
+            location.href = webroot + 'index.php?pid=' + DTO.pid
         }
 
         // Shift-D -> Designer
