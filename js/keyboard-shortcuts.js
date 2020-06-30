@@ -57,28 +57,52 @@ function keyListener(e) {
     }
     
     // In-project shortcuts
-    // D -> Record Status Dashboard
     if (DTO.pid > 0) {
+        // C -> Codebook
+        if (e.code == 'KeyC' && !e.altKey && !e.ctrlKey && !e.shiftKey) {
+            location.href = webroot + 'Design/data_dictionary_codebook.php?pid=' + DTO.pid
+        }
+
+        // D -> Record Status Dashboard
         if (e.code == 'KeyD' && !e.altKey && !e.ctrlKey && !e.shiftKey) {
             location.href = webroot + 'DataEntry/record_status_dashboard.php?pid=' + DTO.pid
         }
+
+        // Shift-D -> Designer
+        if (e.code == 'KeyD' && !e.altKey && !e.ctrlKey && e.shiftKey) {
+            location.href = webroot + 'Design/online_designer.php?pid=' + DTO.pid
+        }
+
+        // Ctrl-Shift-E -> External Modules
+        if (e.code == 'KeyE' && !e.altKey && e.ctrlKey && e.shiftKey) {
+            location.href = DTO.emBase + 'manager/project.php?pid=' + DTO.pid
+        }
+
     }
+
+
+
 }
 
 function setup() {
-    debugLog('KeyboardShortcuts: Initialized')
+    debugLog('KeyboardShortcuts: Initialized', DTO)
     // Create indicator
-    $indicator = $('<div class="keyboard-shortcut-em active"></div>').append('<span class="fa-stack"><i class="fas fa-keyboard fa-stack-1x"></i><i class="fas fa-ban fa-stack-2x inactive-indicator"></i></span>')
-    $('body').append($indicator)
-    // Display/hide indicator
-    setInterval(function() {
-        if ($(':focus').length) {
-            $indicator.removeClass('active')
+    if (DTO.indicator) {
+        $indicator = $('<div class="keyboard-shortcut-em active"></div>').append('<span class="fa-stack"><i class="fas fa-keyboard fa-stack-1x"></i><i class="fas fa-ban fa-stack-2x inactive-indicator"></i></span>')
+        if ($('nav.fixed-top:visible()').length) {
+            $indicator.addClass('below-nav')
         }
-        else {
-            $indicator.addClass('active')
-        }
-    }, 200)
+        $('body').append($indicator)
+        // Display/hide indicator
+        setInterval(function() {
+            if ($(':focus').length) {
+                $indicator.removeClass('active')
+            }
+            else {
+                $indicator.addClass('active')
+            }
+        }, 200)
+    }
     // Listen for keystrokes
     document.addEventListener('keyup', keyListener)
 }

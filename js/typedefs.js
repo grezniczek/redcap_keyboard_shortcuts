@@ -11,7 +11,9 @@
  * @typedef KeyboardShortcutsEM_DTO
  * @type {{
  *  debug: boolean
+ *  indicator: boolean
  *  pid: number
+ *  emBase: string
  *  }}
  * }}
  */

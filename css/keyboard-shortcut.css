@@ -2,17 +2,25 @@
 .keyboard-shortcut-em {
     position: fixed;
     top: 0;
-    left: 0;
+    left: 5px;
     padding: 2px;
     color: black;
     opacity: 0.7;
+    border-radius: 50%;
+    background-color: #f3f3f3;
+}
+.keyboard-shortcut-em.below-nav {
+    top: 52px;
+    left: 2px;
+    background-color: white;
 }
 .keyboard-shortcut-em.active {
     display: block;
+    color: darkred;
 }
 
 .keyboard-shortcut-em .fa-stack {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
 }
 .keyboard-shortcut-em i.inactive-indicator {
     display: block;

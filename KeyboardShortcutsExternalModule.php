@@ -9,9 +9,17 @@ class KeyboardShortcutsExternalModule extends AbstractExternalModule
 
         $this->includeCSS("css/keyboard-shortcut.css");
 
-        $debug = $this->getSystemSetting("debug-mode");
-        
-        
+        $debug = $this->getSystemSetting("debug-mode") == true;
+        $showIndicator = $this->getSystemSetting("show-indicator") == true;
+        if ($project_id) {
+            $hideIndicator = $this->getProjectSetting("project-hide-indicator") == true;
+            if ($hideIndicator) $showIndicator = false;
+        }
+
+        $emBaseLink = $this->IsDevelopmentFramework() ? 
+            (APP_PATH_WEBROOT_PARENT . "external_modules/") : 
+            (trim(APP_PATH_WEBROOT_FULL, "/") . APP_PATH_WEBROOT . "ExternalModules/");
+
         // Transfer data to the JavaScript implementation.
         ?>
         <script>
@@ -20,6 +28,8 @@ class KeyboardShortcutsExternalModule extends AbstractExternalModule
             };
             window.ExternalModules.KeyboardShortcutsEM_DTO = {
                 debug: <?= json_encode($debug) ?>,
+                indicator: <?= json_encode($showIndicator) ?>,
+                emBase: <?= json_encode($emBaseLink) ?>,
                 pid: <?= json_encode($project_id) ?>
             };
         </script>
@@ -69,5 +79,9 @@ class KeyboardShortcutsExternalModule extends AbstractExternalModule
                     })();
                 </script>";
         }
+    }
+
+    private function IsDevelopmentFramework() {
+        return strpos($this->getUrl("dummy.php"), "/external_modules/?prefix=") !== false;
     }
 }
