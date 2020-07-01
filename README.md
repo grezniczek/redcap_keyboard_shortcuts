@@ -54,5 +54,6 @@ Clicking on the indicator icon will display information about the available keyb
 
 Version | Description
 ------- | ------------------
+1.0.2   | Indicator disabled when not logged in.
 1.0.1   | Added prev/next record navigation. Add/Edit finetuning. Added help dialog. Disabled on surveys.
 1.0.0   | Initial release.

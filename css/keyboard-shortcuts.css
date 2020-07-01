@@ -5,7 +5,7 @@
     left: 5px;
     padding: 2px;
     color: black;
-    opacity: 0.7;
+    opacity: 0.3;
     border-radius: 50%;
     background-color: #f3f3f3;
 }
@@ -19,8 +19,9 @@
     left: 285px;
 }
 .keyboard-shortcuts-em.active {
+    opacity: 0.7;
     display: block;
-    color: darkred;
+    color: #aa6666;
 }
 
 .keyboard-shortcuts-em .fa-stack {
@@ -29,7 +30,7 @@
 .keyboard-shortcuts-em i.inactive-indicator {
     display: block;
     color: red;
-    opacity: 0.5;
+    opacity: 0.4;
 }
 .keyboard-shortcuts-em.active i.inactive-indicator {
     display: none;

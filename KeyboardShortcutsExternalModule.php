@@ -7,8 +7,8 @@ class KeyboardShortcutsExternalModule extends AbstractExternalModule
 {
     function redcap_every_page_top($project_id) {
 
-        // Is this a survey page? We are not interested in survey pages
-        if (strpos(PAGE, "surveys/index.php") !== false) return;
+        // Logged in? Is this a survey page? We are not interested in survey pages
+        if (!defined("USERID") || strpos(PAGE, "surveys/index.php") !== false) return;
 
         // print "<pre>"; print_r($GLOBALS["Proj"]); exit;
 
