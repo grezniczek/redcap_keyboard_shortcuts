@@ -108,7 +108,7 @@ class KeyboardShortcutsExternalModule extends AbstractExternalModule
 
 
         // Include CSS and JS, and transfer data to the JavaScript implementation
-        $this->includeCSS("css/keyboard-shortcut.css");
+        $this->includeCSS("css/keyboard-shortcuts.css");
         ?>
         <script>
             if (typeof window.ExternalModules == 'undefined') {
@@ -128,6 +128,8 @@ class KeyboardShortcutsExternalModule extends AbstractExternalModule
         </script>
         <?php
         $this->includeScript("js/keyboard-shortcuts.js");
+
+        include "help.php";
     }
 
 

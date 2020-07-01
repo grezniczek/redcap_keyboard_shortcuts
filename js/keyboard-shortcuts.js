@@ -53,7 +53,7 @@ function keyListener(e) {
     }
     // Alt-2 -> My Projects
     if (e.code == 'Digit2' && modifier == 'a') {
-        location.href = '/index.php?action=myprojects'
+        location.href = '/index.php?focus=%23proj_search&action=myprojects'
     }
     // Alt-0 -> Control Center
     if (e.code == 'Digit0' && modifier == 'a') {
@@ -101,8 +101,8 @@ function keyListener(e) {
             location.href = webroot + 'Design/online_designer.php?pid=' + DTO.pid
         }
 
-        // Ctrl-Shift-E -> External Modules
-        if (e.code == 'KeyE' && modifier == 'cs') {
+        // Shift-E -> External Modules
+        if (e.code == 'KeyE' && modifier == 's') {
             location.href = DTO.emBase + 'manager/project.php?pid=' + DTO.pid
         }
 
@@ -152,11 +152,17 @@ function replaceUrlParam(url, paramName, paramValue)
     return url + (url.indexOf('?')>0 ? '&' : '?') + paramName + '=' + paramValue;
 }
 
+function help() {
+    debugLog('Help requested')
+    // @ts-ignore
+    $('#keyboard-shortcuts-em-help').modal('show')
+}
+
 function setup() {
     debugLog('KeyboardShortcuts: Initialized', DTO)
     // Create indicator
     if (DTO.indicator) {
-        $indicator = $('<div class="keyboard-shortcut-em active"></div>').append('<span class="fa-stack"><i class="fas fa-keyboard fa-stack-1x"></i><i class="fas fa-ban fa-stack-2x inactive-indicator"></i></span>')
+        $indicator = $('<div class="keyboard-shortcuts-em active"></div>').append('<a href="javascript:;"><span class="fa-stack"><i class="fas fa-keyboard fa-stack-1x"></i><i class="fas fa-ban fa-stack-2x inactive-indicator"></i></span></a>')
         if (page.includes('Plugins/index.php')) {
             $indicator.addClass('on-plugins')
         }
@@ -173,6 +179,8 @@ function setup() {
                 $indicator.addClass('active')
             }
         }, 200)
+        // Help
+        $indicator.find('a').on('click', help)
     }
     
     // Listen for keystrokes
@@ -184,7 +192,9 @@ function setup() {
     var focus = params.get('focus')
     if (focus) {
         debugLog('Putting focus on: ' + focus)
-        $(focus).focus()
+        setTimeout(function() {
+            $(focus).focus()
+        }, 50)
     }
 }
 
