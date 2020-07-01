@@ -14,6 +14,10 @@ A REDCap External Module providing a few keyboard shortcuts.
 
 ## Keyboard Shortcuts
 
+Note: When the focus is on any control (input, link, button), the shortcuts are disabled. `Esc` can be used to remove the focus.
+
+Clicking on the indicator icon will display information about the available keyboard shortcuts.
+
 ### Global Shortcuts
 
 - **Alt-1** - _REDCap Instance Home_
@@ -23,12 +27,16 @@ A REDCap External Module providing a few keyboard shortcuts.
 
 ### In-Project Shortcuts
 
-- **A** - Add/Edit Records
+- **A** - Add/Edit Records. This goes straight to a new record for projects with auto-numbering enabled, or else to the _Add/Edit Records_ page with focus set to the record id field.
 - **C** - Codebook
 - **D** - Record Status Dashboard
+- **E** - Add/Edit Records, with focus set to the search field.
 - **H** - Record Home Page
+- **N** - Go to the next record or the first record shown on dashboard.
+- **P** - Go to the previous record or the first record shown on dashboard.  
+  Order is determined by the currently active dashboard.
 - **Shift-D** - Designer
-- **Ctrl-Shift-E** - External Modules
+- **Shift-E** - External Modules
 
 ## Configuration
 
@@ -40,9 +48,11 @@ A REDCap External Module providing a few keyboard shortcuts.
 ### Project
 
 - **Hide indicator**: Suppresses display of the activity indicator.
+- **Disable prev/next**: Do not determine previous/next record. It may be necessary to use this in very large projects for performance reasons.
 
 ## Changelog
 
 Version | Description
 ------- | ------------------
+1.0.1   | Added prev/next record navigation. Add/Edit finetuning. Added help dialog. Disabled on surveys.
 1.0.0   | Initial release.
