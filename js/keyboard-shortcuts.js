@@ -157,7 +157,10 @@ function setup() {
     // Create indicator
     if (DTO.indicator) {
         $indicator = $('<div class="keyboard-shortcut-em active"></div>').append('<span class="fa-stack"><i class="fas fa-keyboard fa-stack-1x"></i><i class="fas fa-ban fa-stack-2x inactive-indicator"></i></span>')
-        if (!(DTO.pid > 0)) {
+        if (page.includes('Plugins/index.php')) {
+            $indicator.addClass('on-plugins')
+        }
+        else if (!(DTO.pid > 0)) {
             $indicator.addClass('below-nav')
         }
         $('body').append($indicator)
