@@ -13,6 +13,11 @@
  *  debug: boolean
  *  indicator: boolean
  *  pid: number
+ *  recordAutoNumbering: boolean
+ *  currentRecord: string 
+ *  prevRecord: string
+ *  nextRecord: string
+ *  prevNextDuration: string
  *  emBase: string
  *  }}
  * }}

@@ -31,6 +31,11 @@
             "name": "Hide indicator",
             "key": "project-hide-indicator",
             "type": "checkbox"
+        },
+        {
+            "name": "Disable prev/next record shortcut (may be necessary for performance reasons in very large projects)",
+            "key": "project-disable-prevnextrecord",
+            "type": "checkbox"
         }
     ],
     "compatibility": {
