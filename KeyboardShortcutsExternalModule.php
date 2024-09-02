@@ -129,7 +129,7 @@ class KeyboardShortcutsExternalModule extends AbstractExternalModule
         <?php
         $this->includeScript("js/keyboard-shortcuts.js");
 
-        include "help.php";
+        include __DIR__ . "help.php";
     }
 
 
